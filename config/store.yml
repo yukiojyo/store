@@ -1,13 +1,13 @@
 # Admin site login
 admin_username: "admin"
-admin_password: "password"
+admin_password: "1234"
 
 # Presentation stuf
 company_name: "My Company"
 company_url: "http://www.mycompany.com/"
 company_logo_path: ""
-store_name: "My Company Store"
-copyright_html: "Copyright &copy; 2011 My Company. All rights reserved."
+store_name: "Neocodex Store"
+copyright_html: "Copyright &copy; 2012 Neocodex Store. All rights reserved."
 google_analytics_account: ""
 include_mint: false
 paypal_express_checkout_header_image: "https://www.mycompany.com/images/mylogo.png"

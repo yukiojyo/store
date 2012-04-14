@@ -15,9 +15,9 @@
 
 # Development settings
 development:
-  api_username: "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-  api_password: "XXXXXXXXXXXXXXXX"
-  api_signature: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  api_username: "rafael_1334109065_biz_api1.gmail.com"
+  api_password: "1334109090"
+  api_signature: "ANipTbSZuA0NK5QVpz-P9-Z2w2.YAcb3mmybzPTcIShJW5f.t9k5WpV5"
   wiredump: true # Turn on logging of communications with PayPal during development
 
 # Follow steps 6 to 10 but with your real PayPal account.
@@ -25,9 +25,9 @@ development:
 
 # Live settings
 production:
-  api_username: "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-  api_password: "XXXXXXXXXXXXXXXX"
-  api_signature: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  api_username: "rafael_1334109065_biz_api1.gmail.com"
+  api_password: "1334109090"
+  api_signature: "ANipTbSZuA0NK5QVpz-P9-Z2w2.YAcb3mmybzPTcIShJW5f.t9k5WpV5"
   # Don't turn this on in production mode unless you absolutely have to. It'll log people's credit card information
   wiredump: false 
 
