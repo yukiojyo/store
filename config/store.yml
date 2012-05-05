@@ -3,9 +3,9 @@ admin_username: "admin"
 admin_password: "1234"
 
 # Presentation stuf
-company_name: "My Company"
-company_url: "http://www.mycompany.com/"
-company_logo_path: ""
+company_name: "Neocodex"
+company_url: "http://www.neocodex.com.br"
+company_logo_path: "/images/store/logo_footer.png"
 store_name: "Neocodex Store"
 copyright_html: "Copyright &copy; 2012 Neocodex Store. All rights reserved."
 google_analytics_account: ""

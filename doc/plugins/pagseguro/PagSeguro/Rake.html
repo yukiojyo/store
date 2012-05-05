@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module PagSeguro::Rake - Pagseguro Plugin Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>vendor/plugins/pagseguro/lib/pagseguro/rake.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-run">#run</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../PagSeguro.html">PagSeguro</a>
+  
+    <li><a href="../PagSeguro/ActionController.html">PagSeguro::ActionController</a>
+  
+    <li><a href="../PagSeguro/DeveloperController.html">PagSeguro::DeveloperController</a>
+  
+    <li><a href="../PagSeguro/Faker.html">PagSeguro::Faker</a>
+  
+    <li><a href="../PagSeguro/Helper.html">PagSeguro::Helper</a>
+  
+    <li><a href="../PagSeguro/InstallGenerator.html">PagSeguro::InstallGenerator</a>
+  
+    <li><a href="../PagSeguro/MissingConfigurationError.html">PagSeguro::MissingConfigurationError</a>
+  
+    <li><a href="../PagSeguro/MissingEnvironmentError.html">PagSeguro::MissingEnvironmentError</a>
+  
+    <li><a href="../PagSeguro/Notification.html">PagSeguro::Notification</a>
+  
+    <li><a href="../PagSeguro/Order.html">PagSeguro::Order</a>
+  
+    <li><a href="../PagSeguro/Railtie.html">PagSeguro::Railtie</a>
+  
+    <li><a href="../PagSeguro/Rake.html">PagSeguro::Rake</a>
+  
+    <li><a href="../PagSeguro/Utils.html">PagSeguro::Utils</a>
+  
+    <li><a href="../PagSeguro/Version.html">PagSeguro::Version</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module PagSeguro::Rake</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/plugins/pagseguro/lib/pagseguro/rake.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;digest/md5&quot;</span>
+
+  <span class="ruby-identifier">env</span> = <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">buffer</span>, (<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:force_encoding</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;UTF-8&quot;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Not running in developer mode? Exit!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">PagSeguro</span>.<span class="ruby-identifier">developer?</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&gt; [PagSeguro] Can only notify development URLs&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&gt; [PagSeguro] Double check your config/pagseguro.yml file&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># There's no orders file! Exit!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">PagSeguro</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperController</span><span class="ruby-operator">::</span><span class="ruby-constant">PAGSEGURO_ORDERS_FILE</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&gt; [PagSeguro] No orders added. Exiting now!&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Load the orders file</span>
+  <span class="ruby-identifier">orders</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-constant">PagSeguro</span><span class="ruby-operator">::</span><span class="ruby-constant">DeveloperController</span><span class="ruby-operator">::</span><span class="ruby-constant">PAGSEGURO_ORDERS_FILE</span>)
+
+  <span class="ruby-comment"># Ops! No orders added! Exit!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">orders</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&gt; [PagSeguro] No invoices created. Exiting now!&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Get the specified order</span>
+  <span class="ruby-identifier">order</span> = <span class="ruby-identifier">orders</span>[<span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;ID&quot;</span>]]
+
+  <span class="ruby-comment"># Not again! No order! Exit!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">order</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;=&gt; [PagSeguro] The order #{env['ID'].inspect} could not be found. Exiting now!&quot;</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Set the client's info</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;NAME&quot;</span>, <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">email</span> = <span class="ruby-identifier">env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;EMAIL&quot;</span>, <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">email</span>)
+
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliNome&quot;</span>] = <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliEmail&quot;</span>] = <span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliEndereco&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">street_name</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliNumero&quot;</span>] = <span class="ruby-identifier">rand</span>(<span class="ruby-value">1000</span>)
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliComplemento&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">secondary_address</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliBairro&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">city</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliCidade&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">city</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliCEP&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">zipcode</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;CliTelefone&quot;</span>] = <span class="ruby-constant">Faker</span>.<span class="ruby-identifier">phone_number</span>
+
+  <span class="ruby-comment"># Set the transaction date</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;DataTransacao&quot;</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%d/%m/%Y %H:%M:%S&quot;</span>)
+
+  <span class="ruby-comment"># Replace the order id to the correct name</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;Referencia&quot;</span>] = <span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;ref_transacao&quot;</span>)
+
+  <span class="ruby-comment"># Count the number of products in this order</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;NumItens&quot;</span>] = <span class="ruby-identifier">order</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%ritem_id_/</span>
+    <span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">to_price</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">price</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">price</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r^(.*?)(.{2})$/</span>
+      <span class="ruby-node">&quot;#{$1},#{$2}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;0,00&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">index</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;NumItens&quot;</span>])
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdID_#{index}&quot;</span>] = <span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-node">&quot;item_id_#{index}&quot;</span>)
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdDescricao_#{index}&quot;</span>] = <span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-node">&quot;item_descr_#{index}&quot;</span>)
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdValor_#{index}&quot;</span>] = <span class="ruby-identifier">to_price</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-node">&quot;item_valor_#{index}&quot;</span>))
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdQuantidade_#{index}&quot;</span>] = <span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-node">&quot;item_quant_#{index}&quot;</span>)
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdFrete_#{index}&quot;</span>] = <span class="ruby-identifier">to_price</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">order</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-node">&quot;item_frete_#{index}&quot;</span>))
+    <span class="ruby-identifier">order</span>[<span class="ruby-node">&quot;ProdExtras_#{index}&quot;</span>] = <span class="ruby-string">&quot;0,00&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Retrieve the specified status or default to :completed</span>
+  <span class="ruby-identifier">status</span> = <span class="ruby-identifier">env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;STATUS&quot;</span>, <span class="ruby-value">:completed</span>).<span class="ruby-identifier">to_sym</span>
+
+  <span class="ruby-comment"># Retrieve the specified payment method or default to :credit_card</span>
+  <span class="ruby-identifier">payment_method</span> = <span class="ruby-identifier">env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;PAYMENT_METHOD&quot;</span>, <span class="ruby-value">:credit_card</span>).<span class="ruby-identifier">to_sym</span>
+
+  <span class="ruby-comment"># Set a random transaction id</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;TransacaoID&quot;</span>] = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-comment"># Set note</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;Anotacao&quot;</span>] = <span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;NOTE&quot;</span>].<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-comment"># Retrieve index</span>
+  <span class="ruby-identifier">index</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:key</span>)
+      <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">key</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Set payment method and status</span>
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;TipoPagamento&quot;</span>] = <span class="ruby-identifier">index</span>[<span class="ruby-constant">PagSeguro</span><span class="ruby-operator">::</span><span class="ruby-constant">Notification</span><span class="ruby-operator">::</span><span class="ruby-constant">PAYMENT_METHOD</span>, <span class="ruby-identifier">payment_method</span>]
+  <span class="ruby-identifier">order</span>[<span class="ruby-string">&quot;StatusTransacao&quot;</span>] = <span class="ruby-identifier">index</span>[<span class="ruby-constant">PagSeguro</span><span class="ruby-operator">::</span><span class="ruby-constant">Notification</span><span class="ruby-operator">::</span><span class="ruby-constant">STATUS</span>, <span class="ruby-identifier">status</span>]
+
+  <span class="ruby-comment"># Finally, ping the configured return URL</span>
+  <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">PagSeguro</span>.<span class="ruby-identifier">config</span>[<span class="ruby-string">&quot;base&quot;</span>], <span class="ruby-constant">PagSeguro</span>.<span class="ruby-identifier">config</span>[<span class="ruby-string">&quot;return_to&quot;</span>])
+  <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">post_form</span> <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">order</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- run-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- run-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
