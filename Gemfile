@@ -16,3 +16,7 @@ group :development do
 	#gem 'postgres','0.8.1'
 	#gem 'pg'
 end
+
+group :production do
+	gem "pg"
+end
