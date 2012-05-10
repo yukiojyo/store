@@ -9,6 +9,7 @@ gem 'pg'
 #gem 'postgres','0.8.1'
 gem 'faker'
 gem 'pagseguro', '~> 0.1.13'
+gem 'thin'
 
 group :development do
 	#gem 'ruby-debug19', :require => 'ruby-debug'

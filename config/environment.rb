@@ -62,3 +62,5 @@ end
 # end
 
 # Include your application configuration below
+RAILS_ENV => “production”
+RACK_ENV => “production”
