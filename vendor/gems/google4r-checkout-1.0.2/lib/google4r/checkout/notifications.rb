@@ -28,6 +28,7 @@
 # handling code.
 
 require 'rexml/document'
+encoding: utf-8
 
 module Google4R #:nodoc:
   module Checkout #:nodoc:
