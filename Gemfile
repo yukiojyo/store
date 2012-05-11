@@ -9,7 +9,7 @@ gem 'rack', '1.1.0'
 gem 'pg'
 gem 'faker'
 gem 'pagseguro', '~> 0.1.13'
-#gem 'thin'
+gem 'thin'
 
 group :development do
 	#gem 'ruby-debug19', :require => 'ruby-debug'
