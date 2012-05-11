@@ -10,6 +10,9 @@ gem 'pg'
 gem 'faker'
 gem 'pagseguro', '~> 0.1.13'
 gem 'thin'
+gem 'taps'
+gem 'compass'
+gem 'haml' # for SASS
 
 group :development do
 	#gem 'ruby-debug19', :require => 'ruby-debug'
