@@ -13,9 +13,9 @@ production:
   adapter: postgresql
   database: store_production
   encoding: utf8
-  username: store
-  password: mei2007
-  host: localhost
+  #username: store
+  #password: mei2007
+  #host: localhost
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
