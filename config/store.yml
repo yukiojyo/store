@@ -1,19 +1,19 @@
 # Admin site login
 admin_username: "admin"
-admin_password: "1234"
+admin_password: "jyo!@#4"
 
 # Presentation stuf
-company_name: "Neocodex"
-company_url: "http://www.neocodex.com.br"
-company_logo_path: "/images/store/logo_footer.png"
-store_name: "Neocodex Store"
-copyright_html: "Copyright &copy; 2012 Neocodex Store. All rights reserved."
+company_name: "Minha Loja"
+company_url: "http://www.minhaloja.com.br"
+#company_logo_path: "/images/store/logo_footer.png"
+store_name: "Minha Loja"
+copyright_html: "Copyright &copy; 2012 Minha Loja. All rights reserved."
 google_analytics_account: ""
 include_mint: false
 paypal_express_checkout_header_image: "https://www.mycompany.com/images/mylogo.png"
 
 # Google checkout?
-allow_google_checkout: true
+allow_google_checkout: false
 
 # Email addresses
 support_email: "support@mycompany.com"
