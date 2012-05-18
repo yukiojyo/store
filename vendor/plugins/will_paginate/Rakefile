@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+#require 'rake/rdoctask'
+require 'rdoc/task'
 
 desc 'Default: run unit tests.'
 task :default => :test
@@ -12,7 +13,8 @@ Rake::TestTask.new(:test) do |t|
 end
 
 desc 'Generate RDoc documentation for the will_paginate plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
+#Rake::RDocTask.new(:rdoc) do |rdoc|
+RDoc::Task.new do |rdoc|
   files = ['README', 'LICENSE', 'lib/**/*.rb']
   rdoc.rdoc_files.add(files)
   rdoc.main = "README" # page to start on
